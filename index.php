@@ -8,21 +8,39 @@ require_once 'includes/header.php';
     
     <h1 class="text-center">Registration for Conference</h1>
 
-    <form>
+    <form method="post" action="success.php">
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstname"  placeholder="Enter First Name" name="firstname">
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="lastname"  placeholder="Enter Last Name" name="lastname">
+        </div>
+        <div class="form-group">
+            <label for="dob">Date Of Birth</label>
+            <input type="text" class="form-control" id="dob"  placeholder="Enter DOB" name="dob">
+        </div>
+        <div class="form-group">
+                <label  for="special">Area of Expertise</label>
+                <select class="form-control" id="special" name="special">
+                    <option class="dropdown-item" href="#">Science</option>
+                    <option class="dropdown-item" href="#">Tech</option>
+                    <option class="dropdown-item" href="#">Media</option>
+                </select>
+        </div>
+
+        
+        <div class="form-group">
+            <label for="email" name="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" >
             <small id="emailHelp" class="form-text text-muted">We'll give up our lives to protect your email address from outside pirates and bandits.</small>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
     </form>
 
 <?php
