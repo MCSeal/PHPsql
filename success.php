@@ -1,10 +1,27 @@
 <?php 
     $title='Success!';
     require_once 'includes/header.php';
+    require_once 'backend/connection.php';
+
+    if(isset($_POST['submit'])){
+        $fname = $_POST['firstname'];
+        $lname = $_POST['lastname'];
+        $dob = $_POST['dob'];
+        $email = $_POST['email'];
+        $special = $_POST['special'];
+        $isSuccess = $crud->insert($fname,$lname,$dob,$email,$special);
+    }
+
+    if($isSuccess){
+        echo '<h1 class="text-center text-success">You have been registered</h1>';
+    }
+    else {
+        echo '<h1 class="text-center text-danger">There was an error</h1>';
+    }
 
 ?>
 
-    <h1 class="text-center text-success">You have been registered</h1>
+    
     <div class="card" style="width: 18rem;">
 
       <div class="card-body">

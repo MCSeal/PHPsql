@@ -14,7 +14,7 @@
         public function insert($fname, $lname, $dob, $email, $special){
             try {
                 // sql insert statement into db
-                $sql = "INSERT INTO attendee  VALUES (:fname, :lname, :dob, :email, :special)";
+                $sql = "INSERT INTO attendee (firstname,lastname,dob,email,interest) VALUES (:fname, :lname, :dob, :email, :special)";
                 //pdo statement will be passed to this, and will be executed... stmt and this will reference this.db which is assigned from the pdo
                 //prepare takes the sql and prepares it for execution
 

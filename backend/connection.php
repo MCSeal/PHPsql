@@ -9,8 +9,10 @@
 
     try {
         $pdo = new PDO($dsn, $user, $pass);
-        echo'hello! database connected';
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     } catch (PDOException $e) {
         throw new  PDOException($e->getMessage(), (int)$e->getCode());
     }
+    require_once 'crud.php';
+    $crud = new crud($pdo);
 ?>
