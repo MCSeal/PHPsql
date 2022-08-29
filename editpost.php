@@ -13,7 +13,7 @@
 
         $result = $crud->editAttendee($id, $fname,$lname,$dob,$email,$special);
         if ($result) {
-            header("Location: index.php");
+            header("Location: viewrecords.php");
         }
         else {
             echo'error';
