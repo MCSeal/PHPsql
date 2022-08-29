@@ -1,0 +1,52 @@
+
+<?php 
+    $title='Index';
+    require_once 'includes/header.php';
+    require_once 'backend/connection.php';
+
+    $results = $crud->getAttendees();
+?>
+
+
+
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Specialty</th>
+            <th>Actions</th>
+
+    
+        </tr>
+        
+        <?php 
+        while($r = $results->fetch(PDO::FETCH_ASSOC)) { ?>
+        
+
+            <tr>
+            <td><?php echo $r['attendee_id'] ?></td>
+            <td><?php echo $r['firstname'] ?></td>
+            <td value=""><?php echo $r['lastname'] ?></td>
+            <td><?php echo $r['specialty'] ?></td>
+            <td><a href="view.php?id=<?php echo $r['attendee_id']?>" class="btn btn-primary">View</a>
+                <a href="edit.php?id=<?php echo $r['attendee_id']?>" class="btn btn-warning">Edit</a>
+            </td>
+            </tr>
+        
+        
+
+        <?php } ?>
+
+    </table>
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<?php
+    require_once 'includes/footer.php';
+?>

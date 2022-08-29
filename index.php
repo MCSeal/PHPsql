@@ -1,8 +1,10 @@
 
 <?php 
-$title='Index';
-require_once 'includes/header.php';
-require_once 'backend/connection.php';
+    $title='Index';
+    require_once 'includes/header.php';
+    require_once 'backend/connection.php';
+
+    $results = $crud->getSpecialties();
 ?>
 
     
@@ -24,9 +26,9 @@ require_once 'backend/connection.php';
         <div class="form-group">
                 <label  for="special">Area of Expertise</label>
                 <select class="form-control" id="special" name="special">
-                    <option class="dropdown-item" href="#" value="1">Science</option>
-                    <option class="dropdown-item" href="#">Tech</option>
-                    <option class="dropdown-item" href="#">Media</option>
+                    <?php while($r = $results->fetch(PDO::FETCH_ASSOC)) { ?>
+                        <option value="<?php echo $r['specialty_id'] ?>"><?php echo $r['specialty'];?></option>
+                    <?php } ?>
                 </select>
         </div>
 
