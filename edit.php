@@ -7,7 +7,8 @@
     $results = $crud->getSpecialties();
 
     if(!isset($_GET['id'])){
-        echo "<h1>Please check details and try again</h1>";
+       include 'includes/error.php';
+       header("Location: viewrecords.php");
 
     } else {
         $id = $_GET['id'];
@@ -57,7 +58,7 @@
         </div>
         <button type="submit" class="btn btn-primary" name="submit">Update Info</button>
     </form>
-
+                        
 
     <?php } ?>
 

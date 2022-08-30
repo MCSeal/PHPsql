@@ -20,7 +20,7 @@
         }
     } 
     else {
-        echo'error';
+        include 'includes/error.php';
     }
 ?>
 
