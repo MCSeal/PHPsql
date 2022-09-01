@@ -1,0 +1,23 @@
+{
+  "name": "phpsql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fix-cs": [
+      "prettier src/**/* --write",
+      "php-cs-fixer fix"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MCSeal/PHPsql.git"
+  },
+  "author": "Mathew Seal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MCSeal/PHPsql/issues"
+  },
+  "homepage": "https://github.com/MCSeal/PHPsql#readme"
+}

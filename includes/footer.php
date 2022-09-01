@@ -1,7 +1,7 @@
 
     
         <div id="footer">
-            <?php 
+            <?php
                 echo 'Copyright ' . '20' . date('y');
             ?>
         </div>

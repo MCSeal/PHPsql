@@ -1,10 +1,10 @@
 
-<?php 
-    $title='Index';
-    require_once 'includes/header.php';
-    require_once 'backend/connection.php';
+<?php
+$title = "Index";
+require_once "includes/header.php";
+require_once "backend/connection.php";
 
-    $results = $crud->getSpecialties();
+$results = $crud->getSpecialties();
 ?>
 
     
@@ -26,8 +26,10 @@
         <div class="form-group">
                 <label  for="special">Area of Expertise</label>
                 <select class="form-control" id="special" name="special">
-                    <?php while($r = $results->fetch(PDO::FETCH_ASSOC)) { ?>
-                        <option value="<?php echo $r['specialty_id'] ?>"><?php echo $r['specialty'];?></option>
+                    <?php while ($r = $results->fetch(PDO::FETCH_ASSOC)) { ?>
+                        <option value="<?php echo $r[
+                            "specialty_id"
+                        ]; ?>"><?php echo $r["specialty"]; ?></option>
                     <?php } ?>
                 </select>
         </div>
@@ -45,6 +47,5 @@
         <button type="submit" class="btn btn-primary" name="submit">Submit</button>
     </form>
 
-<?php
-    require_once 'includes/footer.php';
+<?php require_once "includes/footer.php";
 ?>

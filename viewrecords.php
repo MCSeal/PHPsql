@@ -1,10 +1,10 @@
 
-<?php 
+<?php
     $title='Index';
-    require_once 'includes/header.php';
-    require_once 'backend/connection.php';
+require_once 'includes/header.php';
+require_once 'backend/connection.php';
 
-    $results = $crud->getAttendees();
+$results = $crud->getAttendees();
 ?>
 
 
@@ -20,8 +20,8 @@
     
         </tr>
         
-        <?php 
-        while($r = $results->fetch(PDO::FETCH_ASSOC)) { ?>
+        <?php
+        while ($r = $results->fetch(PDO::FETCH_ASSOC)) { ?>
         
 
             <tr>
