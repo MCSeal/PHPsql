@@ -17,6 +17,7 @@ class user
             if ($result["num"] > 0) {
                 return false;
             } else {
+                $new_password = md5($password.$username);
                 // sql insert statement into db
                 $sql =
                     "INSERT INTO users (username,password) VALUES (:username, :password)";
@@ -26,7 +27,7 @@ class user
                 $stmt = $this->db->prepare($sql);
                 //this binds the prameters to the statement, a type of sql injection prevention
                 $stmt->bindParam(":username", $username);
-                $stmt->bindParam(":password", $password);
+                $stmt->bindParam(":password", $new_password);
                 $stmt->execute();
                 return true;
             }
