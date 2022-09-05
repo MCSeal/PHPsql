@@ -31,7 +31,18 @@
             </ul>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
+                <?php 
+                  if(!isset($_SESSION['userid'])){
+                ?>
+
                 <a class="nav-link" href="login.php">Login <span class="sr-only"></span></a>
+
+                <?php } else { ?>
+                  <span>Welcome, <?php echo $_SESSION['username'] ?></span>
+                  <a class="nav-link" href="logout.php">Logout <span class="sr-only"></span></a>
+
+                <?php } ?>
+                
               </li>
 
             </ul>
