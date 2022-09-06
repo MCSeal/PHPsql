@@ -2,6 +2,7 @@
 <?php
 $title = "View Individual";
 require_once "includes/header.php";
+require_once 'includes/auth_check.php';
 require_once "backend/connection.php";
 
 if (!isset($_GET["id"])) {
