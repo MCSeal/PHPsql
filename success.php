@@ -2,6 +2,7 @@
 $title = "Success!";
 require_once "includes/header.php";
 require_once "backend/connection.php";
+require_once "sendmail.php";
 
 if (isset($_POST["submit"])) {
     $fname = $_POST["firstname"];
@@ -13,6 +14,7 @@ if (isset($_POST["submit"])) {
 }
 
 if ($isSuccess) {
+    SendEmail::SendMail($email, 'Welcome to the conference!', 'You have successfully registered for this event!');
     include "includes/successmessage.php";
 } else {
     include "includes/error.php";
