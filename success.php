@@ -11,6 +11,21 @@ if (isset($_POST["submit"])) {
     $email = $_POST["email"];
     $special = $_POST["special"];
     $isSuccess = $crud->insert($fname, $lname, $dob, $email, $special);
+    $specialtyName = $crud->getSpecialtyById($special);
+
+
+    //original file name targeted from avatar input form
+    $orig_file = $_FILES["avatar"]['tmp_name'];
+    // make file name unique
+    $ext = pathinfo($_FILES["avatar"]['name'], PATHINFO_EXTENSION);
+    //for submitting uploads
+    $target_dir = 'uploads/';
+    //targeting the file based on avatar and naming it avtar+ name
+    $destination = $target_dir . $fname . $ext;
+    move_uploaded_file($orig_file, $destination);
+
+    exit();
+
 }
 
 if ($isSuccess) {
@@ -28,9 +43,7 @@ if ($isSuccess) {
             <h5 class="card-title"><?php echo $_POST["firstname"] .
                 " " .
                 $_POST["lastname"]; ?></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><?php echo $_POST[
-                "special"
-            ]; ?></h6>
+            <h6 class="card-subtitle mb-2 text-muted"><?php echo $specialtyName["specialty"]; ?></h6>
             <p class="card-text">DOB: <?php echo $_POST["dob"]; ?></p>
             <p class="card-text">Email: <?php echo $_POST["email"]; ?></p>
 

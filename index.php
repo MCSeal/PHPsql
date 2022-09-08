@@ -10,7 +10,7 @@ $results = $crud->getSpecialties();
     
     <h1 class="text-center">Registration for Conference</h1>
 
-    <form method="post" action="success.php">
+    <form method="post" action="success.php" enctype= 'multipart/form-data'>
         <div class="form-group">
             <label for="firstname">First Name</label>
             <input required type="text" class="form-control" id="firstname"  placeholder="Enter First Name" name="firstname">
@@ -41,8 +41,12 @@ $results = $crud->getSpecialties();
             <small id="emailHelp" class="form-text text-muted">We'll give up our lives to protect your email address from outside pirates and bandits.</small>
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+            <label for="avatar">Upload Picture (Optional)</label>
+            <input type="file" accept="image/*"  class="form-control" id="avatar"  placeholder="Select Image" name="avatar">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input required type="password" class="form-control" id="password" placeholder="Password" name="password">
         </div>
         <button type="submit" class="btn btn-primary" name="submit">Submit</button>
     </form>
