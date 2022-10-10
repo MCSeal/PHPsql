@@ -11,12 +11,12 @@ class crud
     }
     //function to create a new record
     //accesses data from success to
-    public function insert($fname, $lname, $dob, $email, $special)
+    public function insert($fname, $lname, $dob, $email, $special,$avatar_path)
     {
         try {
             // sql insert statement into db
             $sql =
-                "INSERT INTO attendee (firstname,lastname,dob,email,specialty_id) VALUES (:fname, :lname, :dob, :email, :special)";
+                "INSERT INTO attendee (firstname,lastname,dob,email,specialty_id,avatar_path) VALUES (:fname, :lname, :dob, :email, :special,:avatar_path)";
             //pdo statement will be passed to this, and will be executed... stmt and this will reference this.db which is assigned from the pdo
             //prepare takes the sql and prepares it for execution
 
@@ -27,6 +27,7 @@ class crud
             $stmt->bindParam(":dob", $dob);
             $stmt->bindParam(":email", $email);
             $stmt->bindParam(":special", $special);
+            $stmt->bindParam(":avatar_path", $avatar_path);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {

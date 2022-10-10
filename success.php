@@ -10,8 +10,7 @@ if (isset($_POST["submit"])) {
     $dob = $_POST["dob"];
     $email = $_POST["email"];
     $special = $_POST["special"];
-    $isSuccess = $crud->insert($fname, $lname, $dob, $email, $special);
-    $specialtyName = $crud->getSpecialtyById($special);
+
 
 
     //original file name targeted from avatar input form
@@ -21,22 +20,27 @@ if (isset($_POST["submit"])) {
     //for submitting uploads
     $target_dir = 'uploads/';
     //targeting the file based on avatar and naming it avtar+ name
-    $destination = $target_dir . $fname . $ext;
+    $destination = "$target_dir$fname.$ext";
     move_uploaded_file($orig_file, $destination);
 
-    exit();
+  
 
-}
 
-if ($isSuccess) {
-    SendEmail::SendMail($email, 'Welcome to the conference!', 'You have successfully registered for this event!');
-    include "includes/successmessage.php";
-} else {
-    include "includes/error.php";
+
+    $isSuccess = $crud->insert($fname, $lname, $dob, $email, $special, $destination);
+    $specialtyName = $crud->getSpecialtyById($special);
+
+    if ($isSuccess) {
+        SendEmail::SendMail($email, 'Welcome to the conference!', 'You have successfully registered for this event!');
+        include "includes/successmessage.php";
+    } else {
+        include "includes/error.php";
+    }
 }
 ?>
 
-    
+    <img src="<?php echo $destination; ?>" class="rounded-circle"style="width: 20%; height 20%"/>
+
     <div class="card" style="width: 18rem;">
 
       <div class="card-body">
