@@ -1,8 +1,8 @@
 
     
-        <div id="footer">
+        <div id="footer" class="bg-dark p-2 text-white fixed-bottom">
             <?php
-                echo 'Copyright ' . '20' . date('y');
+                echo 'Copyright ' . '20' . date('y') . ' Mathew Seal';
             ?>
         </div>
     </div>
